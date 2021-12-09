@@ -8,7 +8,9 @@ export default class App extends Component {
   pageSize = 7;
   render() {
     return (
+
       <div>
+        
         <Router>
           <NavBar />
           <Switch>
@@ -22,7 +24,9 @@ export default class App extends Component {
             <Route exact path="/technology"><News key="technology" pageSize={this.pageSize} country="in" category="technology" /></Route>
           </Switch>
         </Router>
+
       </div>
+
     )
   }
 }
