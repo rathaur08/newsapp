@@ -9,9 +9,16 @@ export class NewsItem extends Component {
             <div className="my-3">
 
                 <div className="card" >
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        position: 'absolute',
+                        right: '0'
+                    }
+                    }>
 
-                    <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{ left: '87%', zIndex: '1' }} >
-                        {source}</span>
+                        <span className=" badge rounded-pill bg-danger"> {source} </span>
+                    </div>
                     <img src={!imageUrl ? "https://www.foxnews.com/politics/harris-denounces-european-explorers-for-ushering-in-wave-of-devastation" : imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title} </h5>

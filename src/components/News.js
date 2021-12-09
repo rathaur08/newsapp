@@ -16,7 +16,7 @@ export class News extends Component {
         PageSize: PropTypes.number,
         category: PropTypes.string,
     }
-    
+
     capitalizeFirstLetter = (String) => {
         return String.charAt(0).toUpperCase() + String.slice(1);
     }
@@ -33,6 +33,7 @@ export class News extends Component {
     }
 
     async updateNews() {
+        this.props.setProgress(20);
         const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=93d253a1024344abb951599bb1c4b1bd&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
@@ -42,6 +43,7 @@ export class News extends Component {
             totalResults: parseData.totalResults,
             loading: false
         })
+        this.props.setProgress(100);
     }
 
     async componentDidMount() {
